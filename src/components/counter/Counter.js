@@ -51,10 +51,10 @@ export class Counter extends Component {
     };
 
     render() {
-        const {numberInput} = this.state;
+        const {numberInput, number} = this.state;
         return (
             <div>
-                <NumberResult number={this.state.number}/>
+                <NumberResult number={number}/>
                 <div className="btn-box">
                     {valueArray.map((value, index) => {
                         return (
