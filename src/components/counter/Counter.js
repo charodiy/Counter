@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {NumberResult} from "../number-result/NumberResult";
-import {Button} from "../button/Button";
-import "../button/Button.css"
+import {InputMethods} from "../input-methods/InputMethods";
 
 
 const valueArray = ['1', '-1', '100', '-100'];
@@ -24,24 +23,33 @@ export class Counter extends Component {
 
     onChange = (event) => {
         const numberInput = +event.target.value;
-
-        this.setState({
-            numberInput
-        });
+        if (numberInput === 0) {
+            this.setState({
+                numberInput: ''
+            });
+        } else {
+            this.setState({
+                numberInput
+            });
+        }
     };
 
     onSubmit = () => {
         this.setState(prevState => {
-            if (prevState.numberInput === "") {
-                return {numberInput: 0}
+            if (prevState.numberInput === '') {
+                return {numberInput: ''}
+            }
+            if ((prevState.number + prevState.numberInput) < 0) {
+                return {
+                    number: 0,
+                    numberInput: ''
+                }
             }
             return {
-                number: prevState.number + prevState.numberInput
+                number: prevState.number + prevState.numberInput,
+                numberInput: ''
             }
         });
-        this.setState({
-            numberInput: ''
-        })
     };
 
     onReset = () => {
@@ -55,18 +63,14 @@ export class Counter extends Component {
         return (
             <div>
                 <NumberResult number={number}/>
-                <div className="btn-box">
-                    {valueArray.map((value, index) => {
-                        return (
-                            <Button onClick={this.plus.bind(null, +value)} value={value} key={index}/>
-                        )
-                    })}
-                </div>
-                <div className="input-box">
-                    <input type="number" className="input" onChange={this.onChange} value={numberInput}/>
-                    <button onClick={this.onSubmit}>Submit</button>
-                    <button onClick={this.onReset}>Reset</button>
-                </div>
+                <InputMethods
+                    onChange={this.onChange}
+                    onSubmit={this.onSubmit}
+                    onReset={this.onReset}
+                    plus={this.plus}
+                    numberInput={numberInput}
+                    valueArray={valueArray}
+                />
             </div>
         );
     }
