@@ -3,7 +3,10 @@ import {Counter} from "../counter/Counter";
 
 function App() {
     return (
-        <Counter/>
+        <div>
+            Hello world
+            <Counter/>
+        </div>
     );
 }
 
