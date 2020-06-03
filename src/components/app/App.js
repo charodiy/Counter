@@ -1,11 +1,11 @@
 import React from 'react';
-import {Counter} from "../counter/Counter";
+import {UserCard} from "../user-card/UserCard";
 
 function App() {
     return (
         <div>
             Hello world
-            <Counter/>
+            <UserCard/>
         </div>
     );
 }
