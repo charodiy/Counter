@@ -1,25 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
+import "./UserCard.css"
 
-export class UserCard extends Component {
-    constructor(props) {
-        super(props);
+export function UserCard({user}) {
 
-        // this.users = fetch('https://jsonplaceholder.typicode.com/users')
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-    };
+    if (!user) return null;
 
-
-    render() {
-        // fetch('https://jsonplaceholder.typicode.com/users')
-        //     .then(users => users.json())
-        //     .then(users => console.log(users));
-
-        return (
-            <div>
-                This is user card
-                {/*{this.users}*/}
+    const {first_name, last_name, email, address} = user;
+    return (
+        <div className="user-card">
+            <h4 className="card-title">{first_name} {last_name}</h4>
+            <div className="card-text">
+                <div>{email}</div>
+                <div>{address}</div>
             </div>
-        )
-    }
+        </div>
+    );
 }

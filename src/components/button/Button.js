@@ -1,15 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Button.css"
 
-export function Button({onClick, value}) {
-    // fetch('https://jsonplaceholder.typicode.com/users')
-    //     .then(users => users.json())
-    //     .then(users => users);
-    let response = fetch('https://jsonplaceholder.typicode.com/users');
-    if (response.ok) {
-        let json = response.json();
-        console.log(json);
+
+export class Button extends Component {
+
+    onFetch = () => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => {
+                json.map(value => {
+                    return console.log(value)
+                })
+            });
+
+        // let json = await response.json();
+        // // const { name } = json
+        // json.map(value => {
+        //     return console.log(value.name)
+        // })
+    };
+
+    render() {
+        return (
+            <button onClick={this.onFetch}>Hello</button>
+        );
     }
 
-    return <button onClick={onClick} className="btn">{value}</button>;
+
 }
