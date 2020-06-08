@@ -1,17 +1,12 @@
-.btn-box{
-    display: flex;
-    justify-content: center;
-}
-
-.btn {
+.button{
     width: 60px;
     height: 30px;
-    margin: 5px;
-    font-size: 18px;
-}
-
-.input-box{
-    margin: 10px auto 0;
-    width: 300px;
+    margin-right: 10px;
+    padding: 0;
+    text-align: center;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 

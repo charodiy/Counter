@@ -1,5 +1,30 @@
 .user-card {
-    max-width: 300px;
+    width: 300px;
     margin: 10px 20px;
     padding: 10px;
+    border: 1px lightgray solid;
+    border-radius: 5px;
+    font-size: 15px;
 }
+
+.card-title{
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.card-title-name{
+    font-style: italic;
+    color: gray;
+    font-size: 14px;
+}
+
+.card-text{
+    margin-top: 10px;
+}
+
+.card-text-label{
+    font-style: italic;
+    font-size: 14px;
+}
+

@@ -1,14 +1,13 @@
 import React from 'react';
-import {UserCard} from "../user-card/UserCard";
-import {Button} from "../button/Button";
+import {UserList} from "../user-list/UserList";
+import {UserForm} from "../user-form/UserForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
     return (
-        <div>
-            <Button/>
-            Hello world
-            <UserCard/>
+        <div className="d-flex">
+            <UserList/>
         </div>
     );
 }
